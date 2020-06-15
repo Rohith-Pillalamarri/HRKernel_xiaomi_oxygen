@@ -82,7 +82,7 @@
 		qcom,mdss-pan-physical-width-dimension = <80>;
 		qcom,mdss-pan-physical-height-dimension = <142>;
 		qcom,mdss-night-brightness = <9 27 44 62>;
-		qcom,mdss-dsi-min-refresh-rate = <20>;
+		qcom,mdss-dsi-min-refresh-rate = <30>;
 		qcom,mdss-dsi-max-refresh-rate = <80>;
 		qcom,mdss-dsi-pan-enable-dynamic-fps;
 		qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_vfp";

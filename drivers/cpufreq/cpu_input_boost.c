@@ -266,7 +266,7 @@ static int cpu_notifier_cb(struct notifier_block *nb, unsigned long action,
 	 */
 	if (test_bit(INPUT_BOOST, &b->state)) {
 		policy->min = get_input_boost_freq(policy);
-	else
+	} else
 		policy->min = get_min_freq(policy);
 
 	return NOTIFY_OK;
