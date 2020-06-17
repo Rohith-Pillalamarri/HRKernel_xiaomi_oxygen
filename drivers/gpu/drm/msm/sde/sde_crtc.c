@@ -18,6 +18,8 @@
 #include <drm/drm_crtc.h>
 #include <drm/drm_crtc_helper.h>
 #include <drm/drm_flip_work.h>
+#include <linux/cpu_input_boost.h>
+#include <linux/devfreq_boost.h>
 
 #include "sde_kms.h"
 #include "sde_hw_lm.h"
@@ -51,6 +53,13 @@ static struct sde_kms *get_kms(struct drm_crtc *crtc)
 static inline int sde_crtc_mixer_width(struct sde_crtc *sde_crtc,
 	struct drm_display_mode *mode)
 {
+
+if (fppressed_index > 0 || fp_mode == 1) {
+		cpu_input_boost_kick_max(400);
+                devfreq_boost_kick_max(DEVFREQ_MSM_LLCCBW_DDR, 400);
+                devfreq_boost_kick_max(DEVFREQ_MSM_CPU_LLCCBW, 400);
+}
+
 	if (!sde_crtc || !mode)
 		return 0;
 
